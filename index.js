@@ -4,6 +4,38 @@ const findBtn = document.getElementById('find-btn');
 const weatherBox = document.getElementById('weather-box');
 let city_info = [];
 let weather;
+
+
+async function userLoction() {
+    return new Promise((resolve, reject) => {
+        function success(position) {
+            getCityName(position.coords.latitude, position.coords.longitude)
+                .then(getCity)
+                .then((city) => {
+                    // currCity = city;
+                    resolve(city);
+                })
+                .catch(reject);
+        }
+
+        function error(err) {
+            console.log(err);
+            reject(err);
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error);
+    });
+}
+
+
+async function getCityName(lat, lon) {
+    const api = await fetch(`https://api.opencagedata.com/geocode/v1/json?key=21db4d1944f24ed2b2d69e013b9d2c43&q=${lat}%2C+${lon}&pretty=1&no_annotations=1`);
+    let data = await api.json();
+    let currentLocation = data.results[0].components.city;
+    return currentLocation;
+}
+
+
 async function getCity(letter) {
     try {
         let res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=6498042c04c84fb0aae173218241412&q=${letter}&days=3&aqi=no&alerts=no`);
@@ -14,7 +46,6 @@ async function getCity(letter) {
     }
 
 }
-
 
 
 function display() {
@@ -32,7 +63,7 @@ function display() {
                                     <h5 class="card-title lead city">${city_info.location.name}</h5>
                                     <p class="temp fw-1">${city_info.current.temp_c}&deg;C</p>
                                     <div id="weather-img">
-                                        <img src="${city_info.current.condition.icon}" alt="weather" class="img-fluid h-100" />
+                                        <img src="http:${city_info.current.condition.icon}" alt="weather" class="img-fluid h-100"  />
                                     </div>
                                     <p class="text-primary fs-6 ">${city_info.current.condition.text}</p>
                                     <div class="d-flex">
@@ -53,7 +84,7 @@ function display() {
                                 </div>
                                 <div class="card-body text-center">
                                     <div id="weather-img" class="mt-5 mb-0">
-                                        <img src="./images/116.png" alt="weather" class="img-fluid h-50" />
+                                        <img src="http:${city_info.forecast.forecastday[1].day.condition.icon}" alt="weather" class="img-fluid h-50" />
                                     </div>
                                     <p class="fs-3 fw-bold m-0 p-0">${city_info.forecast.forecastday[1].day.maxtemp_c}&deg;C</p>
                                     <p class="fs-6 fw-light text-secondary">${city_info.forecast.forecastday[1].day.mintemp_c}&deg;C</p>
@@ -69,7 +100,7 @@ function display() {
                                 </div>
                                 <div class="card-body text-center">
                                     <div id="weather-img" class="mt-5 mb-0">
-                                        <img src="./images/116.png" alt="weather" class="img-fluid h-50" />
+                                        <img src="http:${city_info.forecast.forecastday[2].day.condition.icon}" alt="weather" class="img-fluid h-50" />
                                     </div>
                                     <p class="fs-3 fw-bold m-0 p-0">${city_info.forecast.forecastday[2].day.maxtemp_c}&deg;C</p>
                                     <p class="fs-6 fw-light text-secondary">${city_info.forecast.forecastday[2].day.mintemp_c}&deg;C</p>
@@ -80,34 +111,44 @@ function display() {
                         </div>
                       
                        </div>`
+                    //    console.log(city_info.forecast);
     return box;
 
 }
 
+async function displayCUrr() {
+    city_info = await userLoction() ;
+           weather = display();
+           console.log( city_info)
+weatherBox.innerHTML = weather;
 
-
-
+}
+ 
 
 searchBar.addEventListener('input', async function () {
     city_info = await getCity(searchBar.value);
 
     if (city_info.error) {
-        console.log(city_info.error.message)
-        weather = `<P>${city_info.error.message}</P>`
+        let mesg = city_info.error.message;
+        console.log(mesg)
+        if (mesg == 'No matching location found.') {
+            weather = `<P class="d-flex justify-content-center text-white fw-bold fs-2 bg-black bg-opacity-50 p-1">${city_info.error.message}</P>`;
+        } else {
+            city_info = await userLoction() ;
+           weather = display();
+       
+        }
     } else {
-        console.log(city_info);
         weather = display();
-
     }
+   
     weatherBox.innerHTML = weather;
 
 
 })
 
-
-
-
-
-//  gets the location and display as the defult value
-// loading 
+document.addEventListener('DOMContentLoaded', async function(){
+    await displayCUrr();
+})
+ 
 
