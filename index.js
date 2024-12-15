@@ -1,14 +1,12 @@
 import { cityApi } from "./cities.module.js";
 
-
-
 const searchBar = document.getElementById('search-bar');
 const findBtn = document.getElementById('find-btn');
 const weatherBox = document.getElementById('weather-box');
 
 let city_info = [];
 
-searchBar.addEventListener('keyup',function(){
+searchBar.addEventListener('keyup', async function(){
  let city = new cityApi(searchBar.value);
  city_info = city.getCity();
 
