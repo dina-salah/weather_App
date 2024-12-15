@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Weather</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css" />
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg  navbar-dark   p-5">
+        <div class="container-fluid py-1 px-5">
+            <div class="ms-5">
+                <img src="./images/logo.png" alt="logo" />
+                <a id="logo-name" class="  position-relative  navbar-brand" href="#"></a>
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto me-5">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#">Live cameras</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#">Photos</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header>
+            <div class="container-fluid  ">
+                <div class="row position-relative" style="background-color: #1E202B;">
+                    
+                    <div class="search-container p-lg-5">
+                      <div class="d-flex justify-content-center flex-wrap align-items-center p-0 m-5 position-relative">
+                        <input type="search" placeholder="Find your location" class="form-control "  id="search-bar"/>
+                        <button id="find-btn" class="btn btn-primary text-white px-4 ">Find</button>
+                      </div>
+                    </div>
+                    <div id="weather-box" class="weather-boxs p-5  pb-0 mb-0 position-relative">
+                       <div class="row p-lg-5 p-md-1 pb-0 mb-0">
+                        <div id="first-day" class="col-lg-4  p-0 col-md-12">
+                            <div class="card  text-white mb-0 rounded-0">
+                                <div class="card-header d-flex border-0">
+                                    <span class="me-auto lead ">Friday</span>
+                                    <span class="ms-auto lead">13Dec</span>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title lead city">Cairo</h5>
+                                    <p class="temp fw-1">18.3&deg;C</p>
+                                    <div id="weather-img">
+                                        <img src="./images/116.png" alt="weather" class="img-fluid h-100" />
+                                    </div>
+                                    <p class="text-primary fs-6 ">Partly cloudy</p>
+                                    <div class="d-flex">
+                                        <span class="me-4 weather-measure"><img src="./images/icon-umberella.png"
+                                                class="img-fluid me-1" /><span>20%</span></span>
+                                        <span class="me-4 weather-measure"><img src="./images/icon-wind.png"
+                                                class="img-fluid me-1" /><span>18km/h</span></span>
+                                        <span class="me-4 weather-measure"><img src="./images/icon-compass.png"
+                                                class="img-fluid me-1" /><span>East</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sec-day" class="col-lg-4  p-0 col-md-12">
+                            <div class="card  text-white mb-0 rounded-0">
+                                <div class="card-header d-flex border-0">
+                                    <span class="m-auto lead ">Friday</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <div id="weather-img" class="mt-5 mb-0">
+                                        <img src="./images/116.png" alt="weather" class="img-fluid h-50" />
+                                    </div>
+                                    <p class="fs-3 fw-bold m-0 p-0">18.3oC</p>
+                                    <p class="fs-6 fw-light text-secondary">18.3oC</p>
+                                    <p class="text-primary fs-6 ">Partly cloudy</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div id="last-day" class="col-lg-4  p-0 col-md-12">
+                            <div class="card  text-white mb-0 rounded-0">
+                                <div class="card-header d-flex border-0">
+                                    <span class="m-auto lead ">Friday</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <div id="weather-img" class="mt-5 mb-0">
+                                        <img src="./images/116.png" alt="weather" class="img-fluid h-50" />
+                                    </div>
+                                    <p class="fs-3 fw-bold m-0 p-0">18.3oC</p>
+                                    <p class="fs-6 fw-light text-secondary">18.3oC</p>
+                                    <p class="text-primary fs-6 ">Partly cloudy</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                      
+                       </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12  p-0 m-0 pt-3">
+                        <div class="d-flex justify-content-center flex-wrap align-items-center p-0 m-5 mb-0   position-relative">
+                          <input type="search" placeholder="Enter your email to subscribe" class="form-control m-0" />
+                          <button class="btn btn-primary text-white px-4 m-0 ">Subscribe</button>
+                        </div>
+                </div>
+                <div class="col-lg-4 col-md-12  mb-0 pb-0 pt-3">
+                    <ul class="d-flex  text-primary  align-items-end p-lg-5 pb-0 mb-0 justify-content-start ">
+                        <li><i class="fa-brands fa-facebook-f"></i></li>
+                        <li><i class="fa-brands fa-google"></i></li>
+                        <li><i class="fa-brands fa-pinterest"></i></li>
+                        <li><i class="fa-brands fa-twitter"></i></li>
+                    </ul>
+                </div>
+                <p class="fs-6 text-white  mt-lg-0 ms-lg-5">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>

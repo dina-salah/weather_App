@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+}
+nav{
+     background-color: #1E202B;
+}
+#logo-name:before{
+     content: 'Weather';
+     top: 0px;
+     left: 15px;
+     font-size: 16px;
+     font-weight: 700;
+     color: white;
+     position: absolute;
+     /* transform: translateX(-50%); */
+}
+#logo-name:after{
+     content: 'tagline goes here';
+     top: 25px;
+     left: 15px;
+     font-size: 10px;
+     font-weight: 300;
+     color: white;
+     position: absolute;
+     /* transform: translateX(-50%); */
+}
+.search-container{
+     background-image: url(./images/banner.png);
+     background-position: center;
+     background-size:cover;
+     height: 50vh;
+}
+ 
+.form-control{
+     height: 60px;
+     background-color: #1E202B;
+     border-color: #1E202B ;
+     border-radius: 50px ;
+ 
+
+}
+.form-control:focus{
+     background-color: #1E202B;
+     box-shadow: none;
+     outline: none;
+     border: 0;
+     color: slategrey;
+   
+}
+.form-control::placeholder{
+     color: slategrey;
+}
+button.btn-primary {
+     border-color: transparent !important;
+     border-radius: 50px;
+     height: 50px;
+     
+    position: absolute;
+    z-index: 1;
+  
+    right: 8px;
+}
+#weather-img{
+     height: 100px;
+}
+.weather-measure span{
+     color: #8D8E94;
+}
+.temp{
+     font-size: 5rem;
+}
+.card{
+     background-color: #323544 !important;
+}
+.card .lead{
+     color: #DEF2CF !important;
+     font-size: 14px;
+    
+}
+.card
+.city{
+     font-size: 18px;
+}
+.weather-boxs{
+     top: -200px;
+     /* height: 45vh; */
+}
+.card-header{
+     background-color: #2D303D;
+     border-radius: 0px !important;
+}
+#sec-day
+.card-header{
+     background-color: #222530;
+}
+#sec-day
+.card{
+     background-color: #262936 !important;
+}
+#sec-day .card, #first-day .card , #last-day .card{
+     height: 400px  !important;
+}
+footer{
+     background-color: #262936;
+     ul{
+          list-style: none;
+          li{
+               border-radius: 100%;
+               padding: 12px 15px;
+               background-color: #1E202B;
+               transition: 0.5s;
+               margin: 0 3px;
+          }
+          li:hover{
+               color: white;
+               background-color: #009AD8;
+          }
+     }
+}
